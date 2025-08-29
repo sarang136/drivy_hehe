@@ -5,7 +5,7 @@ export const Driverapi = createApi({
 
   baseQuery: fetchBaseQuery({
     baseUrl: "https://api.drvvy.com",
-    // baseUrl: "https://drvvy-backend-lucc.onrender.com",
+    // baseUrl: "https://api.drvvy.com",
     credentials: "include",
   }),
 

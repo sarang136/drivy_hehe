@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const adminApi = createApi({
   reducerPath: "adminApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://drvvy-backend-lucc.onrender.com",
+    baseUrl: "https://api.drvvy.com",
     credentials: "include", 
   }),
   endpoints: (builder) => ({

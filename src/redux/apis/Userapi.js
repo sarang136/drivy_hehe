@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const Userapi = createApi({
   reducerPath: "Userapi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://drvvy-backend-lucc.onrender.com",
+    baseUrl: "https://api.drvvy.com",
     credentials: "include",
   }),
   tagTypes: ["Users"],

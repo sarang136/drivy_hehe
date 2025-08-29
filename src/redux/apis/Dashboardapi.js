@@ -4,7 +4,7 @@ import { createApi ,fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 export const dashboardApi = createApi({
   reducerPath: "dashboardApi",
  baseQuery: fetchBaseQuery({
-    baseUrl: "https://drvvy-backend-lucc.onrender.com",
+    baseUrl: "https://api.drvvy.com",
     credentials: "include",
   }),
   tagTypes: ["Revenue", "Bookings", "Users"],
