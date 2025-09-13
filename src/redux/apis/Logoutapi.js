@@ -5,7 +5,7 @@ import { adminApi } from "./Adminapi";
 
 export const logoutApi = adminApi.injectEndpoints({ 
    baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.drvvy.com",
+    baseUrl: "https://drvvy-backend-s21a.onrender.com",
     credentials: "include",
   }),
   endpoints: (builder) => ({

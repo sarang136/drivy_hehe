@@ -354,11 +354,9 @@ const DriverProfile = () => {
   const handleExport = () => {
     const pdf = new jsPDF("p", "mm", "a4");
 
-    // Title
     pdf.setFontSize(18);
     pdf.text("Driver Details Report", 105, 20, { align: "center" });
 
-    // Function to load image as promise
     const loadImage = (src) => {
       return new Promise((resolve, reject) => {
         if (!src) return resolve(null);
@@ -371,7 +369,6 @@ const DriverProfile = () => {
     };
 
     (async () => {
-      // Load all images parallel
       const [profileImg, adharImg, licenseImg] = await Promise.all([
         loadImage(driverData?.profilePicture),
         loadImage(driverData?.AdharCard),
@@ -381,7 +378,6 @@ const DriverProfile = () => {
       let y = 40;
       pdf.setFontSize(12);
 
-      // Personal Info Table
       autoTable(pdf, {
         startY: y,
         head: [["Field", "Details"]],
@@ -404,7 +400,6 @@ const DriverProfile = () => {
 
       y = pdf.lastAutoTable.finalY + 10;
 
-      // Documents Status Table
       autoTable(pdf, {
         startY: y,
         head: [["Document", "Status"]],
@@ -419,11 +414,9 @@ const DriverProfile = () => {
 
       y = pdf.lastAutoTable.finalY + 15;
 
-      // Document Images: Two images on top (Aadhar, License), one below (Profile under Aadhar)
       pdf.setFontSize(13);
       pdf.text("Documents:", 14, y - 5);
 
-      // Top row: Aadhar (left), License (right)
       const imgWidth = 60;
       const imgHeight = 45;
       const gap = 20;
@@ -432,26 +425,22 @@ const DriverProfile = () => {
 
       let topRowY = y + 2;
 
-      // Aadhar
       if (adharImg) {
         pdf.text("Aadhar", leftX + imgWidth / 2, y, { align: "center" });
         pdf.addImage(adharImg, "JPEG", leftX, topRowY, imgWidth, imgHeight);
       }
 
-      // License
       if (licenseImg) {
         pdf.text("License", rightX + imgWidth / 2, y, { align: "center" });
         pdf.addImage(licenseImg, "JPEG", rightX, topRowY, imgWidth, imgHeight);
       }
 
-      // Profile (below Aadhar, left-aligned under Aadhar)
       if (profileImg) {
         const profileY = topRowY + imgHeight + 15;
         pdf.text("Profile", leftX + imgWidth / 2, profileY - 5, { align: "center" });
         pdf.addImage(profileImg, "JPEG", leftX, profileY, imgWidth, imgHeight);
       }
 
-      // ✅ Save only once after everything is added
       pdf.save(`${driverData?.name || "driver"}-details.pdf`);
     })();
   };
@@ -469,7 +458,6 @@ const DriverProfile = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen p-4">
-      {/* Export Button */}
       <div className="flex justify-end mb-4">
         <button
           onClick={handleExport}
@@ -479,7 +467,6 @@ const DriverProfile = () => {
         </button>
       </div>
 
-      {/* Details Card */}
       {activeTab === null && (
         <div
           id="driver-details"

@@ -2,7 +2,7 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://api.drvvy.com", // Replace with your actual backend URL
+  baseUrl: "https://drvvy-backend-s21a.onrender.com", // Replace with your actual backend URL
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
   const token = getState().auth.token || localStorage.getItem("auth_token");

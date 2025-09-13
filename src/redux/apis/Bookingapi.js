@@ -4,7 +4,7 @@ import { createApi,fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const Bookingapi = createApi({
   reducerPath: 'Bookingapi',
  baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.drvvy.com",
+    baseUrl: "https://drvvy-backend-s21a.onrender.com",
     credentials: "include",
   }),
   endpoints: (builder) => ({

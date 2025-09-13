@@ -4,8 +4,8 @@ export const Driverapi = createApi({
   reducerPath: "Driverapi",
 
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.drvvy.com",
-    // baseUrl: "https://api.drvvy.com",
+    baseUrl: "https://drvvy-backend-s21a.onrender.com",
+    // baseUrl: "https://drvvy-backend-s21a.onrender.com",
     credentials: "include",
   }),
 
